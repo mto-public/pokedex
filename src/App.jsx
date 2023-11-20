@@ -19,7 +19,9 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <PokemonCard pokemonList = {pokemonList} />
+    // <PokemonCard />
+    <PokemonCard pokemon = {pokemonList[0]} />
+    // <PokemonCard pokemonList = {pokemonList} />
   )
 }
 
