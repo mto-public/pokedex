@@ -1,19 +1,9 @@
 // import styles from './style.css'
 import styles from './styles.module.css'
 
-const pokemonList = [
-    {
-      name: "bulbasaur",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-      name: "mew",
-    },
-];
-
-export default function PokemonCard() {
-    let pokemon = pokemonList[1]
+export default function PokemonCard(props) {
+    let pokemon = props.pokemonList[0]
+    console.log(props)
     return (
         <figure>
             <figcaption>{pokemon.name}</figcaption>
