@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function PokemonCard(props) {
     let pokemon = props.pokemon
-    console.log(props)
+    // console.log(props)
 
     return (
         <figure>
