@@ -66,10 +66,10 @@ function App() {
         }
         
         { pokemonIndex < pokemonList.length - 1 ?
-        <button onClick={indexInc}>Suivant</button>
-        :
-        ''
-      }
+          <button onClick={indexInc}>Suivant</button>
+          :
+          ''
+        }
       </div>
     </>
   )
