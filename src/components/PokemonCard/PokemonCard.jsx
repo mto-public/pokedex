@@ -30,4 +30,5 @@ export default function PokemonCard() {
     )
 }
 
+
 // export default PokemonCard;
