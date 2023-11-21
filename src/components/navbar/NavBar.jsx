@@ -1,3 +1,5 @@
+import styles from './styles.module.css'
+
 export default function NavBar({pokemonIndex, pokemonList, setPokemonIndex}) {
     currentIndex()
 
@@ -19,7 +21,8 @@ export default function NavBar({pokemonIndex, pokemonList, setPokemonIndex}) {
 
     return (
         <div className="navbar">
-            { pokemonIndex > 0 ?
+          {/* {pokemonList.length} */}
+            {/* { pokemonIndex > 0 ?
             <button onClick={indexDes}>Précédent</button>
             :
             ''
@@ -29,7 +32,19 @@ export default function NavBar({pokemonIndex, pokemonList, setPokemonIndex}) {
             <button onClick={indexInc}>Suivant</button>
             :
             ''
+            } */}
+
+            {
+              pokemonList.map((pokemon, index) => (
+                // <button key = {pokemon.name}
+                <button key = {index}
+                  onClick = {() => setPokemonIndex(index)}
+                >
+                  {pokemon.name}
+                </button>
+              ))
             }
+
         </div>
     )
 }
