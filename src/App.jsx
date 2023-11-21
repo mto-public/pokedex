@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -31,17 +31,22 @@ const pokemonList = [
     },
   ];
 
-
+  
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0)
   // let pokemonIndex = useState(0)
   // return & initialize array [0, dispatch]
 
+  useEffect(() => {
+    // This runs only on mount (when the component appears)
+    console.log("hello pokemon trainer :)")
+  });
+
   return (
     <>
       <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
+      <h1>pokemonIndex: {pokemonIndex}</h1>
       <PokemonCard pokemon = {pokemonList[pokemonIndex]} />
-      <h1 className="">{pokemonIndex}</h1>
     </>
   )
 }

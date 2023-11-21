@@ -1,50 +1,32 @@
+import { useState, useEffect } from 'react'
 import styles from './styles.module.css'
 
 export default function NavBar({pokemonIndex, pokemonList, setPokemonIndex}) {
-    currentIndex()
-
-    const indexInc = () => {
-      // pokemonIndex++;
-      setPokemonIndex(pokemonIndex + 1)
-      currentIndex();
+    let otherInfo = 0;
+    if(pokemonList[pokemonIndex].name === 'pikachu') {
+      console.log("pika pikachu !!!");
     }
-  
-    const indexDes = () => {
-      // pokemonIndex--;
-      setPokemonIndex(pokemonIndex -1)
-      currentIndex();
-    }
-
-    function currentIndex() {
-        console.log(pokemonIndex)
-    }
+    useEffect(() => {
+      // This runs only on mount (when the component appears)
+      // console.log("userEffect ! once per render")
+      console.log("navBar")
+      otherInfo = pokemonIndex;
+    }, []);
 
     return (
-        <div className="navbar">
-          {/* {pokemonList.length} */}
-            {/* { pokemonIndex > 0 ?
-            <button onClick={indexDes}>Précédent</button>
-            :
-            ''
-            }
-            
-            { pokemonIndex < pokemonList.length - 1 ?
-            <button onClick={indexInc}>Suivant</button>
-            :
-            ''
-            } */}
+        <div className="navbar">             
+          {
+            pokemonList.map((pokemon, index) => (
+              // <button key = {pokemon.name}
+              <button key = {index}
+                onClick = {() => setPokemonIndex(index)}
+              >
+                {pokemon.name}
+              </button>
+            ))
+          }
 
-            {
-              pokemonList.map((pokemon, index) => (
-                // <button key = {pokemon.name}
-                <button key = {index}
-                  onClick = {() => setPokemonIndex(index)}
-                >
-                  {pokemon.name}
-                </button>
-              ))
-            }
-
+          <h2>Copy of pokemonIndex: {otherInfo}</h2>
         </div>
     )
 }
